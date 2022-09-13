@@ -17,7 +17,7 @@ class RestaurantTest {
     Restaurant restMock;
 
     //List of items added by user -> mock
-    List<Item> itemsAdded = new ArrayList<>();
+    List<String> itemsAdded = new ArrayList<>();
 
     //REFACTOR ALL THE REPEATED LINES OF CODE
     @BeforeEach
@@ -82,8 +82,8 @@ class RestaurantTest {
 
     @Test
     public void display_total_item_cost_post_selecting_items(){
-        itemsAdded = restaurant.getMenu();
-        assertEquals(388,restaurant.getOrderTotal(itemsAdded));
+        itemsAdded.add("Sweet corn soup");
+        assertEquals(119,restaurant.getOrderTotal(itemsAdded));
     }
     //<<<<<order>>>>>>
 }

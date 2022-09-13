@@ -73,4 +73,17 @@ public class Restaurant {
         return name;
     }
 
+    //To Pick the items added matched with the restaurant menu list
+    public double getOrderTotal(List<String> itemsAdded){
+        double totalValue = 0;
+            for(Item item : menu){
+            for(String name : itemsAdded){
+                if(item.getName().equalsIgnoreCase(name)){
+                    totalValue += item.getPrice();
+                }
+            }
+        }
+        return totalValue;
+    }
+
 }
