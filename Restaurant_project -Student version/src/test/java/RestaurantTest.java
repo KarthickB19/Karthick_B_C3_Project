@@ -6,6 +6,8 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,6 +15,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class RestaurantTest {
     Restaurant restaurant;
     Restaurant restMock;
+
+    //List of items added by user -> mock
+    List<Item> itemsAdded = new ArrayList<>();
 
     //REFACTOR ALL THE REPEATED LINES OF CODE
     @BeforeEach
@@ -71,4 +76,14 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+    //<<<<<order>>>>>>
+
+    @Test
+    public void display_total_item_cost_post_selecting_items(){
+        itemsAdded = restaurant.getMenu();
+        assertEquals(388,restaurant.getOrderTotal(itemsAdded));
+    }
+    //<<<<<order>>>>>>
 }
